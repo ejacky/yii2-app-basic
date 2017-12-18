@@ -21,7 +21,8 @@
         "yiisoft/yii2-redis": "^2.0@dev",
         "yiisoft/yii2-queue": "~2.0.0",
         "pda/pheanstalk": "^3.1@dev",
-        "codeception/codeception": "dev-master"
+        "codeception/codeception": "dev-master",
+        "jeremeamia/superclosure": "^2.3@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
