@@ -25,11 +25,15 @@ class HelloController extends Controller
      */
     public function actionIndex($message = 'hello world')
     {
-        echo $message . "\n";
+        Yii::$app->queue->push(new DownloadJob([
+            'url' => 'http://example.com/image.jpg',
+            'file' => '/tmp/image.jpg',
+        ]));
     }
 
     public function actionWhat()
     {
+
         echo "this is what?";
     }
 }

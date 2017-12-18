@@ -12,6 +12,11 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'queue' => [
+            'class' => \yii\queue\beanstalk\Queue::class,
+            'as log' => \yii\queue\LogBehavior::class,
+
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'whatthefuck!',
@@ -38,8 +43,8 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
+                'levels' => ['error', 'warning'],
+            ],
             ],
         ],
         'db' => $db,

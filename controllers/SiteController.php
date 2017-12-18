@@ -61,6 +61,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->queue->push(new \app\jobs\DownloadJob([
+            'url' => 'http://example.com/image.jpg',
+            'file' => '/tmp/image.jpg',
+        ]));
+
         return $this->render('index');
     }
 

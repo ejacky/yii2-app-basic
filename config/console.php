@@ -6,9 +6,14 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'queue'],
     'controllerNamespace' => 'app\commands',
     'components' => [
+        'queue' => [
+            'class' => \yii\queue\beanstalk\Queue::class,
+            'as log' => \yii\queue\LogBehavior::class,
+
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
