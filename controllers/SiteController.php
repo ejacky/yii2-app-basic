@@ -61,6 +61,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        var_dump(Yii::$app->redis->keys("*"));
+
+        exit;
         Yii::$app->queue->push(new \app\jobs\TestJob([
             'msg' => 'hello world!'
         ]));
